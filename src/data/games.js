@@ -1,3 +1,7 @@
+// Lokale SVG afbeeldingen — geen externe requests, sneller laden
+const img = (bg, color, label, rank) =>
+  `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='80'><rect width='120' height='80' fill='%23${bg}'/><text x='60' y='33' font-family='Arial,sans-serif' font-size='18' font-weight='bold' fill='%23${color}' text-anchor='middle' dominant-baseline='middle'>${label}</text><text x='60' y='57' font-family='Arial,sans-serif' font-size='11' fill='%23${color}' text-anchor='middle' opacity='0.6'>TOP ${rank}</text></svg>`
+
 export const games = [
   {
     rank:      1,
@@ -8,7 +12,7 @@ export const games = [
     platforms: ['pc', 'console'],
     trend:     'up',
     trendText: '▲ +3',
-    image:     'https://placehold.co/120x80/1a1a2e/f0c040?text=Game+1&font=bebas-neue',
+    image:     img('1a1a2e', 'f0c040', 'MC', 1),
   },
   {
     rank:      2,
@@ -19,7 +23,7 @@ export const games = [
     platforms: ['pc', 'console'],
     trend:     'same',
     trendText: '— 0',
-    image:     'https://placehold.co/120x80/0d1b2a/00cfff?text=Game+2&font=bebas-neue',
+    image:     img('0d1b2a', '00cfff', 'FN', 2),
   },
   {
     rank:      3,
@@ -30,7 +34,7 @@ export const games = [
     platforms: ['pc'],
     trend:     'up',
     trendText: '▲ +1',
-    image:     'https://placehold.co/120x80/1c1c1c/ff4655?text=Game+3&font=bebas-neue',
+    image:     img('1c1c1c', 'ff4655', 'VAL', 3),
   },
   {
     rank:      4,
@@ -41,7 +45,7 @@ export const games = [
     platforms: ['pc', 'console'],
     trend:     'down',
     trendText: '▼ -1',
-    image:     'https://placehold.co/120x80/1a0a2e/c77dff?text=Game+4&font=bebas-neue',
+    image:     img('1a0a2e', 'c77dff', 'FC25', 4),
   },
   {
     rank:      5,
@@ -52,7 +56,7 @@ export const games = [
     platforms: ['mobiel'],
     trend:     'up',
     trendText: '▲ +2',
-    image:     'https://placehold.co/120x80/0a2e1a/39ff14?text=Game+5&font=bebas-neue',
+    image:     img('0a2e1a', '39ff14', 'PUBG', 5),
   },
   {
     rank:      6,
@@ -63,7 +67,7 @@ export const games = [
     platforms: ['pc', 'console'],
     trend:     'down',
     trendText: '▼ -2',
-    image:     'https://placehold.co/120x80/2e1a0a/ff9500?text=Game+6&font=bebas-neue',
+    image:     img('2e1a0a', 'ff9500', 'COD', 6),
   },
   {
     rank:      7,
@@ -74,7 +78,7 @@ export const games = [
     platforms: ['mobiel'],
     trend:     'same',
     trendText: '— 0',
-    image:     'https://placehold.co/120x80/2e0a1a/ff2d78?text=Game+7&font=bebas-neue',
+    image:     img('2e0a1a', 'ff2d78', 'COC', 7),
   },
   {
     rank:      8,
@@ -85,7 +89,7 @@ export const games = [
     platforms: ['pc'],
     trend:     'up',
     trendText: '▲ +1',
-    image:     'https://placehold.co/120x80/0a1e2e/4fc3f7?text=Game+8&font=bebas-neue',
+    image:     img('0a1e2e', '4fc3f7', 'LOL', 8),
   },
   {
     rank:      9,
@@ -96,7 +100,7 @@ export const games = [
     platforms: ['console'],
     trend:     'down',
     trendText: '▼ -1',
-    image:     'https://placehold.co/120x80/1a1a1a/e0e0e0?text=Game+9&font=bebas-neue',
+    image:     img('1a1a1a', 'e0e0e0', 'GTA', 9),
   },
   {
     rank:      10,
@@ -107,7 +111,7 @@ export const games = [
     platforms: ['pc', 'console', 'mobiel'],
     trend:     'up',
     trendText: '▲ +3',
-    image:     'https://placehold.co/120x80/1e2a0a/a8e63d?text=Game+10&font=bebas-neue',
+    image:     img('1e2a0a', 'a8e63d', 'ROB', 10),
   },
 ]
 
@@ -117,7 +121,7 @@ export const archief = [
     jaar:     '2025',
     label:    'Huidig',
     top3:     ['🥇 Minecraft', '🥈 Fortnite', '🥉 Valorant'],
-    linkHome: true,   // verwijst naar homepage
+    linkHome: true,
     disabled: false,
   },
   {
@@ -150,7 +154,7 @@ export const archief = [
     label:    null,
     top3:     [],
     linkHome: false,
-    disabled: true,   // nog niet beschikbaar
+    disabled: true,
   },
   {
     maand:    'Januari',

@@ -10,18 +10,20 @@ function GameCard({ game }) {
       className={`game-card ${game.rank === 1 ? 'rank-1' : ''}`}
       data-platform={game.platforms.join(' ')}
     >
-      <div className="rank-badge">
+      <div className="rank-badge" aria-label={`Rang ${game.rank}`}>
         {String(game.rank).padStart(2, '0')}
       </div>
 
       <div className="game-thumb">
         <img
           src={game.image}
-          alt={game.title}
-          loading="lazy"
+          alt={`${game.title} thumbnail`}
+          width="120"
+          height="80"
+          decoding="async"
         />
         {game.platforms.map((platform) => (
-          <span key={platform} className={`platform-tag ${platform}`}>
+          <span key={platform} className={`platform-tag ${platform}`} aria-label={platform}>
             {platform}
           </span>
         ))}
@@ -36,7 +38,7 @@ function GameCard({ game }) {
         </div>
       </div>
 
-      <div className={`game-trend ${trendClass}`}>
+      <div className={`game-trend ${trendClass}`} aria-label={`Trend: ${game.trendText}`}>
         {game.trendText}
       </div>
     </article>
